@@ -14,6 +14,11 @@ date: "`r Sys.Date()`"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+# Introduction
+
+Is there a difference in frequently eating out percentages based on ethnicity? 
+
 ## There were two years in which the General Social Survey asked about the frequency of eating out.
 ### Find those years and for the first year the question was asked download that years data in a stata format - its name will be "GSSxxxx.dta" where the xxxx is replaced by the year.  For example if the year was 1983 its name would be GSS1983.dta. Your assignment is to download the GSS yearly dataset for the first year the question was asked and then  write up the answer to the question by editing the  code block in line 31 to eval=TRUE and finish the job. 
 
@@ -28,8 +33,9 @@ require(tigerstats)
 require(knitr)
 require(foreign)
 ```
-```{r, eval=FALSE}
-GSS <-read.dta(file="GSS1996.dta")
+```{r, eval=TRUE, include=FALSE}
+#race = c("white","black","other")
+GSS <-readstata13::read.dta13(file="GSS1996.dta")
 GSS <- droplevels(GSS)
 mydata <- select(GSS,race,age,eatout)
 mydata <- na.omit(mydata)
@@ -38,7 +44,8 @@ mydata <- na.omit(mydata)
 
 
 
+```{r}
+barchartGC(~race + eatout,data=mydata)
+barchartGC(~race + eatout,data=mydata,type="percent")
 
-
-
-
+```
