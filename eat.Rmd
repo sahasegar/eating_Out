@@ -41,11 +41,39 @@ mydata <- select(GSS,race,age,eatout)
 mydata <- na.omit(mydata)
 ```
 
+# Method
+According to the data from the bar graph, a Categorical~Numerical Method is performed based on ethnicity, while the amount of times eating out is used as a numerical variable. 
 
-
+# Results
+Whites eat out more, compared to other races. 
 
 ```{r}
 barchartGC(~race + eatout,data=mydata)
 barchartGC(~race + eatout,data=mydata,type="percent")
 
 ```
+## graphical results 
+
+These graphs shows that the white race frequently eat out approximately 5-10% more, compared to blacks and other ethnicities. 
+
+## Numerical description
+
+```{r}
+table1 <- xtabs(~race + eatout, data=mydata)
+rowPerc(table1)
+colPerc(table1) 
+```
+
+#inferential results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+#Conclusion 
+restate the ? *
+According to chicago reports * 
+Tuky square test, 
+There is a statistical difference in the frequent of eating out depending on the race. 
+The P value is so small that I reject the null hypothesis. 
