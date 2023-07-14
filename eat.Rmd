@@ -54,7 +54,7 @@ barchartGC(~race + eatout,data=mydata,type="percent")
 ```
 ## graphical results 
 
-These graphs shows that the white race frequently eat out approximately 5-10% more, compared to blacks and other ethnicities. 
+The following bar graphs suggests that the white race frequently eat out approximately 5-10% more, compared to blacks and other ethnicity. 
 
 ## Numerical description
 
@@ -63,17 +63,26 @@ table1 <- xtabs(~race + eatout, data=mydata)
 rowPerc(table1)
 colPerc(table1) 
 ```
+The results of this numerical description shows the frequency of eating out compared to blacks and other ethnicity, supporting that white ethnicity frequently eat out opposed to blacks and other ethnicities. 
 
-#inferential results
+# Inferential results
 
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
-#Conclusion 
-restate the ? *
-According to chicago reports * 
-Tuky square test, 
-There is a statistical difference in the frequent of eating out depending on the race. 
-The P value is so small that I reject the null hypothesis. 
+Chi squared tests shows the p value of 0.0008179. which is a small value, therefore, the null hypothesis is rejected. 
+The fisher exact test proves that the p value is 0.001208, which leads to the rejection of the null hypothesis due to the p-value lesser quantity. 
+
+
+# Discussion and Conclusion 
+According to analysis from University of Chicago, there is a statistical difference between at least two races with the frequency of eating out. Based on the Chi square test results, the null hypothesis is rejected due to the small p-value of 0.0008179. This concludes that there is an overall difference in the frequency of eating out based on ethnicity.  
+
+# Inferential results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisherXY(mydata$race,mydata$eatout,printAll=T)
+```
