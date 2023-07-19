@@ -86,3 +86,6 @@ chisq.test(table1)
 chisqtestGC(table1)
 fisherXY(mydata$race,mydata$eatout,printAll=T)
 ```
+# Discussion and Conclusion
+From the analysis from the fisher exact test, there is no difference in the frequency of eating out between the white race and black race. The test fails to reject the difference between white and other races, as well as black and other races. Therefore I conclude, there is a difference in ethnicities eating out, so I reject the Null hypothesis. 
+I conclude that there is no different, so I fail to reject. 
